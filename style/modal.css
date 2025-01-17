@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ysabeau+SC:wght@1..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+.modal {
+  user-select: auto;
+  display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Оставаться на месте */
+    z-index: 1000000; /* Сидеть на вершине */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    background-color: rgb(0,0,0); /* Цвет запасной вариант */
+    background-color: rgba(0,0,0,0.4); /* Черный с непрозрачностью */
+
+  }
+  
+  /* Модальное содержание/коробка */
+  .modal-content {
+    background-image: url('img/modal2.png');
+    user-select: auto;
+    padding-right: 20px;
+    height: 80%;
+    overflow-y: auto;
+    border: 1px solid #888;
+    width: 80%; /* Может быть больше или меньше, в зависимости от размера экрана */
+    /* background: linear-gradient(#212e3d,black); */
+    color: black;
+    margin-top: 10px;
+    margin-left: auto ;
+    margin-right: auto ;
+    /* background-image: url('./img/modal2.png'); */
+    background-size: 100%;
+    background-position: right;
+    border-radius: 10px;
+    font-family: "Ysabeau SC", sans-serif;
+    z-index: 2;
+  }
+  
+  /* Кнопка закрытия */
+  .close, .cClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    background-color: #212e3d;
+    margin: 3px;
+    border-radius: 3px;
+    position: relative;
+    font-size: right;
+    font-weight: bold;
+ 
+  }
+  
+  .close:hover,
+  .cClose:hover{
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .hero {
+    z-index: -1;
+    width: 92%;
+    margin-top: -21px;
+    border-radius: 10px;
+    background-size: cover;
+}
+
+.modal-content>h2{
+color: white;
+font-family: "Russo One", sans-serif;
+font-weight: normal;
+  display: flex;
+  border-radius: 10px;
+  margin-left: 50%;
+  font-size: 220%;
+  user-select: auto;
+
+}
+
+
+
+.modal_text {
+  padding: 10px;
+  border: white 2px solid;
+  display: flex;
+  color: white;
+  user-select: auto;
+  max-height: 60%;
+  overflow: auto;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 4%;
+}
+
+.modal_text > p {
+  user-select: auto;
+}
+
+.modal_text::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 20px;
+  height: 10%;
+  /* width: 2px; */
+  border: 1px solid gray;
+}
+
+.modal_back {
+  background-size: cover;
+  height: 100%;
+  float: left;
+  display: flex;
+  width: 55%;
+  z-index: 2;
+}
+
+.modal_arrows {
+  height: 15%;
+  margin-top: 36%;
+  margin-left: -7%;
+  position: relative;
+}
