@@ -106,31 +106,21 @@ let currentIndex = 0;
 let isRealHero = false;
 realHeroPath = "";
 futureHeroPath = "";
-const war = document.querySelectorAll(".war");
-const med = document.querySelectorAll(".med");
-const science = document.querySelectorAll(".science");
-const sport = document.querySelectorAll(".sport");
-const econom = document.querySelectorAll(".econom");
-const other = document.querySelectorAll(".other");
 let sound = "";
 const changeCentryBtn1 = document.querySelector('.changeCentry1');
 const changeCentryBtn2 = document.querySelector('.changeCentry2');
 let currentOblast = "";
 
-
-// Списки элементов категорий
-const categories = {
-  science: document.querySelectorAll(".science"),
-  med: document.querySelectorAll(".med"),
-  war: document.querySelectorAll(".war"),
-  econom: document.querySelectorAll(".econom"),
-  sport: document.querySelectorAll(".sport"),
-  other: document.querySelectorAll(".other"),
-};
-
 // Универсальная функция для переключения категорий
 function showCategory(categoryToShow,e=null) {
-
+  const categories = {
+    science: document.querySelectorAll(".science"),
+    med: document.querySelectorAll(".med"),
+    war: document.querySelectorAll(".war"),
+    econom: document.querySelectorAll(".econom"),
+    sport: document.querySelectorAll(".sport"),
+    other: document.querySelectorAll(".other"),
+  };
   document.querySelectorAll(".filter>button").forEach((el)=>{
     el.classList.add("filter_btn")
       el.classList.remove("filter_btn_active")
@@ -155,6 +145,14 @@ function showCategory(categoryToShow,e=null) {
 
 // Функция для отображения всех категорий
 function showAllCategories(e) {
+  const categories = {
+    science: document.querySelectorAll(".science"),
+    med: document.querySelectorAll(".med"),
+    war: document.querySelectorAll(".war"),
+    econom: document.querySelectorAll(".econom"),
+    sport: document.querySelectorAll(".sport"),
+    other: document.querySelectorAll(".other"),
+  };
 
   document.querySelectorAll(".filter>button").forEach((el)=>{
     el.classList.add("filter_btn")
@@ -863,4 +861,44 @@ function setHero(name121) {
       sound = heroData.sound;
     })
     .catch(error => console.error('Ошибка загрузки JSON:', error));
+}
+
+class HeroMark{
+  constructor(id, name, imag, filter){
+    this.id = id;
+    this.name = name;
+    this.imag = imag;
+    this.filter = filter;
+  }
+
+  spawn(){
+    const div = document.createElement('div');
+    div.style.marginLeft = `${getRandomInt(oC.clientWidth)}px`;
+    div.style.marginTop = `${getRandomInt(oC.clientHeight)}px`;
+    div.classList.add('gallery_pamyatnik')
+    div.classList.add(`${this.filter}`)
+    div.title = this.name;
+    div.onclick = () => setHero(this.id);
+    div.innerHTML = `<img src="${this.imag}" alt="${this.name}" />`;
+    oC.appendChild(div);
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('heroes.json')
+    .then(response => response.json())
+    .then(data => {
+      for (var i = 1; i <= Object.keys(data).length; i++){
+        console.log(data[i])
+        var mark = new HeroMark(i, data[i].nameRu, data[i].imgCyber, data[i].filter)
+        mark.spawn()
+      }
+    })
+    .catch(error => console.error('Ошибка загрузки JSON:', error))
+})
+
+function getRandomInt(max) {
+    const limit = Math.min(max, oC.clientWidth);
+    return Math.floor(Math.random() * limit)/6;
 }
