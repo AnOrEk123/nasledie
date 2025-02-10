@@ -875,8 +875,8 @@ class HeroMark{
   spawn(){
     const div = document.createElement('div');
     div.style.position = `absolute`;
-    div.style.marginLeft = `${getRandomInt(oC.clientWidth)}px`;
-    div.style.marginTop = `${getRandomInt(oC.clientHeight)}px`;
+    div.style.marginLeft = `${getRandomInt(oC.clientWidth/6)}px`;
+    div.style.marginTop = `${getRandomInt(oC.clientHeight/6)}px`;
     div.classList.add('gallery_pamyatnik')
     div.classList.add(`${this.filter}`)
     div.title = this.name;
@@ -902,5 +902,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getRandomInt(max) {
     const limit = Math.min(max, oC.clientWidth);
-    return Math.floor(Math.random() * limit)/6;
+    return Math.floor(Math.random() * limit);
 }
