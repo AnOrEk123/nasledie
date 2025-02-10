@@ -869,14 +869,20 @@ class HeroMark{
     this.name = name;
     this.imag = imag;
     this.filter = filter;
+    this.minLeft = 20;
+    this.minTop = 10;
+    this.maxLeft = 70;
+    this.maxTop = 80;
     this.spawn = this.spawn.bind(this);
   }
 
   spawn(){
     const div = document.createElement('div');
     div.style.position = `absolute`;
-    div.style.left = `${Math.random()*100}%`;
-    div.style.top = `${Math.random()*100}%`;
+    const dLeft = this.maxLeft - this.minLeft;
+    const dTop = this.maxTop - this.minTop;
+    div.style.left = `${this.minLeft+Math.random()*dLeft}%`;
+    div.style.top = `${this.minTop+Math.random()*dTop}%`;
     div.classList.add('gallery_pamyatnik')
     div.classList.add(`${this.filter}`)
     div.title = this.name;
