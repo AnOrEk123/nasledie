@@ -869,7 +869,7 @@ class HeroMark{
     this.name = name;
     this.imag = imag;
     this.filter = filter;
-    this.spawn = this.spawm.bind(this);
+    this.spawn = this.spawn.bind(this);
   }
 
   spawn(){
