@@ -875,8 +875,8 @@ class HeroMark{
   spawn(){
     const div = document.createElement('div');
     div.style.position = `absolute`;
-    div.style.marginLeft = `${getRandomInt(oC.clientWidth/6)}px`;
-    div.style.marginTop = `${getRandomInt(oC.clientHeight/6)}px`;
+    div.style.left = `${Math.random()*100}%`;
+    div.style.top = `${Math.random()*100}%`;
     div.classList.add('gallery_pamyatnik')
     div.classList.add(`${this.filter}`)
     div.title = this.name;
