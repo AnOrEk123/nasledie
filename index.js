@@ -874,13 +874,14 @@ class HeroMark{
 
   spawn(){
     const div = document.createElement('div');
+    div.style.position = `absolute`;
     div.style.marginLeft = `${getRandomInt(oC.clientWidth)}px`;
     div.style.marginTop = `${getRandomInt(oC.clientHeight)}px`;
     div.classList.add('gallery_pamyatnik')
     div.classList.add(`${this.filter}`)
     div.title = this.name;
     div.onclick = () => setHero(this.id);
-    div.innerHTML = `<img src="${this.imag}" alt="${this.name}" />`;
+    div.innerHTML = `<img src="${this.imag}" alt="${this.name}"/>`;
     oC.appendChild(div);
   }
 }
